@@ -1,0 +1,46 @@
+INPUT : "lidar"
+
+NOISE : True
+
+BUILDINGS : True
+
+# RADAR_TYPE : ti_cascade # 1. radarbook | 2. ti_cascade
+RADAR_TYPE : ti_cascade
+
+INDOOR : False
+
+RADAR_MOVING : False
+
+RAY_TRACING : False
+
+INVERT_ANGLE : 0
+
+BASE_PATH : "/radar-imaging-dataset/carla_garage_data/ll_dataset_2023_05_10/Routes_Town04_ll_Repetition0/Town04_ll_route0_11_17_05_03_55/"
+
+CAMERA_PATH : "rgb_image/" #path for original camera images
+
+LIDAR_PATH : "lidar_pcd/" #path for unprocessed lidar point clouds
+
+LIDAR_PATH_SEGMENTED : "lidar_segmented/" #path for segmented lidar point clouds
+
+LIDAR_PATH_CLUSTERS : "lidar_clusters_centroid_with_labels" #path for saving lidar pcd with cluster labels with a separate channel
+ 
+LIDAR_PATH_LABELS : "lidar_with_labels/" #path for saving lidar pcd with cluster labels with a separate channel
+
+LIDAR_PATH_POINT_VELOCITY : "lidar_velocity/" #path for saving the velocity of all the points and all the frames
+
+LIDAR_PATH_CLUSTER_VELOCITY : "lidar_clusters_centroid_with_label_velocity/" #path for saving the velocity of all the cluster points and all the frames
+
+RADAR_PATH_SIMULATED : "radar_data_simulated/"
+
+# CARLA_SHENRON_SEM_LIDAR : carla_shenron_sem_lidar/
+CARLA_SHENRON_SEM_LIDAR : semantic_lidar/
+
+
+# PATHS :
+
+#   LIDAR_PATH : "C:\\Users\\Strai\\Downloads\\semantic_lidar"
+
+#   LIDAR_FOLDERS : ["semantic_lidar"]
+
+#   OUT_PATH : "C:\\Users\\Strai\\Downloads\\semantic_lidar\\semantic_lidar"

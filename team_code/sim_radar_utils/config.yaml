@@ -1,0 +1,101 @@
+radar:
+  fStrt: 24.0e9              # start frequency         
+  fStop: 24.25e9             # stop frequency
+  TRampUp: 100e-6            # ramp-up time of chirp
+  TInt: 100e-3               # inter-frame interval
+  Tp: 1000e-6                 # inter-chirp time
+  N: 256                   # samples per chirp
+  IniTim: 100e-3             # initial delay before collection of samples
+  IniEve: 0                  # start automatically after IniTim
+#  TxSeq: [1, 2]
+  TxSeq: [1]              # antenna activation sequence
+  Np: 3 #128                    # number of chirps in one frame
+  AntIdx: [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15]
+  # AntIdx: [0, 1, 2, 3, 4, 5, 6, 7]
+  NrChn: 86 #16
+
+
+FFT:
+  NFFT: 256 #512
+  NFFTVel: 128
+  NFFTAnt: 256 #128
+  RMin: 0
+  RMax: 1000
+  c0: 299792458
+
+
+Cluster:
+  xlim: [-20, 20]
+  ylim: [0, 40]
+  zlim: [0, 2]
+
+
+ROS:
+  Topic:
+    radarCfg: '/radarbook/config'
+    radarRaw: '/radarbook/data'
+    radarPCD: '/radarbook/pcd'
+    cameraRGB: '/camera/color/image_raw'
+    cameraDepth: '/camera/depth/image_rect_raw'
+    lidarPCD: '/os1_cloud_node/points'
+  SavePath:
+    radarCfg: '/radar_cfg.json'
+    radarRaw: '/radar_data/'
+    radarPCD: '/radar_pcd/'
+    cameraRGB: '/rgb_image/'
+    # cameraRGB: '/camera_original/'
+    cameraDepth: '/depth_image/'
+    # lidarPCD: '/lidar_pcd/'
+    lidarPCD: '/raw_lidar/'
+    timeStamp: '/time_stamp.npy'
+
+CFAR:
+  win_param: [9, 9, 3, 3]
+  threshold: 20
+
+
+Visualize:
+  rangeAoA:
+    title: "Range-Angle Plot"
+    xLabel: "Range"
+    xUnit: "m"
+    yLabel: "Angle"
+    yUnit: "Degree"
+    winSize: [500, 400]
+    pos: [50, 50]
+  rangeDoppler:
+    title: "Range-Velocity Plot"
+    xLabel: "Range"
+    xUnit: "m"
+    yLabel: "Velocity"
+    yUnit: "m/s"
+    winSize: [500, 400]
+    pos: [600, 50]
+  radarPCD:
+    title: "Radar Point Cloud"
+    xLabel: "Azimuth Position"
+    xUnit: "m"
+    yLabel: "Depth Position"
+    yUnit: "m"
+    winSize: [500, 400]
+    pos: [1200, 50]
+    penWidth: 5
+    penColor: 'r'
+    symbol: 'o'
+    dotSize: 1
+  cameraRGB:
+    title: "RGB Image"
+    winSize: [640, 360]
+    pos: [50, 500]
+  cameraDepth:
+    title: "Depth Image"
+    winSize: [640, 360]
+    pos: [600, 500]
+  lidarPCD:
+    title: "Lidar Point Cloud"
+    xRange: [-30, 30]
+    yRange: [-30, 30]
+    winSize: [500, 400]
+    pos: [1200, 500]
+    dotSize: 1
+
