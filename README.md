@@ -1,4 +1,15 @@
 # C-Shenron: A Realistic Radar Simulator for End-to-End Autonomous Driving in CARLA
+This repository contains the official implementation used for the paper "A Realistic Radar Simulator for End-to-End Autonomous Driving in CARLA". The simulator is designed to generate realistic radar data for autonomous driving tasks, enhancing the capabilities of the CARLA simulator.
+
+## Overview
+C-Shenron is a high-fidelity radar simulation framework integrated with the CARLA simulator, enabling realistic, physics-based radar data generation using LiDAR and camera inputs. It supports customizable radar sensor setups and generates data suitable for End-to-End (E2E) autonomous driving pipelines, especially for transformer-based models like Transfuser++.
+
+Key features:
+- Realistic radar data using physics-based Shenron model
+- Supports multiple radar views (Front, Back, Left, Right)
+- End-to-end integration with imitation learning pipelines
+- Easily scalable data collection and evaluation setup
+- Demonstrated performance gains over LiDAR-camera baselines (+3% Driving Score)
 
 ## Data Collection
 First we need to generate bash scripts for both starting carla simulator and data collection. `data_generation_bash_scripts.py` will generate the scripts into `Data_Collection_Scripts` directory which has two sub-folders:
@@ -17,6 +28,8 @@ bash Data_Collection_Scripts/Start_Carla_Job_Scripts/job0.sh
 This is an example, you can run any of the files from `bash Data_Collection_Scripts/Start_Carla_Job_Scripts`.
 
 Refer to [this repository](https://github.com/ucsdwcsng/nautilus-kubernetes-howto/blob/main/parallelization.md) on how to run data collection scrips parallely by running each script in a pod.
+
+> **Note:** The generated data will be updated shortly as we are currently figuring out the best storage solution for the data. We will update the README with the link to the data once it is available.
 
 ## Training the model
 #### Training:
