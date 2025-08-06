@@ -1,9 +1,6 @@
 # Model saving directory
 carla_garage_logdir/*
 
-# Data generation
-datagen_carla_garage/
-
 # Evaluation Results
 Evaluation_Results/
 
@@ -12,13 +9,6 @@ Evaluation_Results/
 
 # Ignore .ssh
 .ssh/
-
-# Ignore data collection scripts
-Data_Collection_Scripts/
-
-# Ignore Evaluation_Scripts
-Evaluation_Scripts/Job_Files/
-Evaluation_Scripts/Start_Carla_Job_Scripts/
 
 # Ignore all changes pycache directory
 **/__pycache__/

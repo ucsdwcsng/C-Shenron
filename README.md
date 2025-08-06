@@ -27,7 +27,7 @@ bash Data_Collection_Scripts/Start_Carla_Job_Scripts/job0.sh
 ```
 This is an example, you can run any of the files from `bash Data_Collection_Scripts/Start_Carla_Job_Scripts`.
 
-Refer to [this repository](https://github.com/ucsdwcsng/nautilus-kubernetes-howto/blob/main/parallelization.md) on how to run data collection scrips parallely by running each script in a pod.
+Refer to [parallelization.md](./parallelization.md) in this repository for instructions on how to run data collection scripts in parallel by executing each script in a separate pod.
 
 > **Note:** The generated data will be updated shortly as we are currently figuring out the best storage solution for the data. We will update the README with the link to the data once it is available.
 
