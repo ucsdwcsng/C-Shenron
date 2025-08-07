@@ -48,6 +48,7 @@ class DataAgent(AutoPilot):
       (self.save_path / 'bev_semantics').mkdir()
       (self.save_path / 'bev_semantics_augmented').mkdir()
       (self.save_path / 'boxes').mkdir()
+      (self.save_path / 'carla_radar').mkdir()
 
     self.tmp_visu = int(os.environ.get('TMP_VISU', 0))
 
@@ -186,6 +187,21 @@ class DataAgent(AutoPilot):
         'points_per_second': self.config.lidar_points_per_second,
         'id': 'semantic_lidar'
     })
+    result.append({
+        'type': 'sensor.other.radar',
+        'x': self.config.radar_pos[0],
+        'y': self.config.radar_pos[1],
+        'z': self.config.radar_pos[2],
+        'roll': self.config.radar_rot[0],
+        'pitch': self.config.radar_rot[1],
+        'yaw': self.config.radar_rot[2],
+        'fov': 30, # Dummy value
+        'width': 30, # Dummy value
+        'horizontal_fov': self.config.radar_horizontal_fov,
+        'vertical_fov': self.config.radar_vertical_fov,
+        'points_per_second': self.config.radar_points_per_second,
+        'id': 'carla_radar'
+    })
 
     return result
 
@@ -205,7 +221,7 @@ class DataAgent(AutoPilot):
 
       semantics = input_data['semantics'][1][:, :, 2]
       semantics_augmented = input_data['semantics_augmented'][1][:, :, 2]
-
+      radar_points = input_data['carla_radar'][1]
     else:
       rgb = None
       rgb_augmented = None
@@ -213,6 +229,7 @@ class DataAgent(AutoPilot):
       semantics_augmented = None
       depth = None
       depth_augmented = None
+      radar_points = None
     
     # The 10 Hz LiDAR only delivers half a sweep each time step at 20 Hz.
     # Here we combine the 2 sweeps into the same coordinate system
@@ -291,6 +308,7 @@ class DataAgent(AutoPilot):
         'bev_semantics': bev_semantics['bev_semantic_classes'],
         'bev_semantics_augmented': bev_semantics_augmented['bev_semantic_classes'],
         'bounding_boxes': bounding_boxes,
+        'carla_radar': radar_points
     })
 
     return result
@@ -387,6 +405,8 @@ class DataAgent(AutoPilot):
 
   def save_sensors(self, tick_data):
     frame = self.step // self.config.data_save_freq
+    if tick_data['carla_radar'] is not None:
+      np.save(str(self.save_path / 'carla_radar' / (f'{frame:04}.npy')), tick_data['carla_radar'])
 
     # CARLA images are already in opencv's BGR format.
     cv2.imwrite(str(self.save_path / 'rgb' / (f'{frame:04}.jpg')), tick_data['rgb'])

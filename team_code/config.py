@@ -105,6 +105,12 @@ class GlobalConfig:
     self.camera_height = 256  # Camera height in pixel during data collection
     self.camera_fov = 110
 
+    self.radar_pos = [2.0, 0.0, 1.0]
+    self.radar_rot = [0.0, 0.0, 0.0]
+    self.radar_horizontal_fov = 30.0
+    self.radar_vertical_fov = 20.0
+    self.radar_points_per_second = 1500
+
     # -----------------------------------------------------------------------------
     # Dataloader
     # -----------------------------------------------------------------------------
