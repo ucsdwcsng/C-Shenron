@@ -29,7 +29,8 @@ This is an example, you can run any of the files from `bash Data_Collection_Scri
 
 Refer to [parallelization.md](./parallelization.md) in this repository for instructions on how to run data collection scripts in parallel by executing each script in a separate pod.
 
-> **Note:** The generated data will be updated shortly as we are currently figuring out the best storage solution for the data. We will update the README with the link to the data once it is available.
+#### Downloading the dataset
+The dataset can be downloaded from the following link: [http://wcsng-41.nrp-nautilus.io:8000/](http://wcsng-41.nrp-nautilus.io:8000/)
 
 ## Training the model
 #### Training:
