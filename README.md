@@ -65,3 +65,18 @@ bash /Evaluation_Scripts/Start_Carla_Job_Scripts/job0.sh
 ```
 
 Again, this is an example and you can run any of the files from the `Start_Carla_Job_Scripts` and parallelize the process by following the above mentioned repository.
+
+## Citation
+
+If you use this work in your research, please cite our paper:
+
+```bibtex
+@INPROCEEDINGS{11310463,
+  author    = {Srivastava, Satyam and Li, Jerry and Mishra, Pushkal and Bansal, Kshitiz and Bharadia, Dinesh},
+  booktitle = {2025 IEEE 102nd Vehicular Technology Conference (VTC2025-Fall)},
+  title     = {A Realistic Radar Simulator for End-to-End Autonomous Driving in CARLA},
+  year      = {2025},
+  pages     = {1--6},
+  doi       = {10.1109/VTC2025-Fall65116.2025.11310463}
+}
+```
