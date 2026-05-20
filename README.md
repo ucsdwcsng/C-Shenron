@@ -1,6 +1,8 @@
 # C-Shenron: A Realistic Radar Simulator for End-to-End Autonomous Driving in CARLA
 This repository contains the official implementation used for the paper "A Realistic Radar Simulator for End-to-End Autonomous Driving in CARLA". The simulator is designed to generate realistic radar data for autonomous driving tasks, enhancing the capabilities of the CARLA simulator.
 
+**Project webpage:** [C-Shenron project page](https://wcsng.ucsd.edu/c-shenron/)
+
 ## Overview
 C-Shenron is a high-fidelity radar simulation framework integrated with the CARLA simulator, enabling realistic, physics-based radar data generation using LiDAR and camera inputs. It supports customizable radar sensor setups and generates data suitable for End-to-End (E2E) autonomous driving pipelines, especially for transformer-based models like Transfuser++.
 
